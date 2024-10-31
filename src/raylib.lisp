@@ -943,8 +943,8 @@
   (materials (:pointer (:struct %material)))
   (mesh-material (:pointer :int))
   (bone-count :int)
-  (bones (:struct %bone-info))
-  (bind-pose (:struct %transform)))
+  (bones (:pointer (:struct %bone-info)))
+  (bind-pose (:pointer (:struct %transform))))
 
 (define-conversion-into-foreign-memory (object (type model-type) pointer)
     (with-foreign-slots ((transform mesh-count material-count meshes materials mesh-material bone-count bones bind-pose) pointer (:struct %model))
